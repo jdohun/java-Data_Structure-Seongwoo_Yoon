@@ -1,6 +1,6 @@
 package ch01_Search;
 
-public class BSWorstOpCount {
+public class BSWorstOperateCount {
     public static int binarySearch(final int[] arr, final int target) {
         int first = 0;
         int last = arr.length -1;
