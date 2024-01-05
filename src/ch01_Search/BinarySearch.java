@@ -3,7 +3,7 @@ package ch01_Search;
 public class BinarySearch {
     public static int search(final int[] arr, final int target) {
         int first = 0;
-        int last = arr.length;
+        int last = arr.length -1;
         int mid;
 
         while (first <= last) {
@@ -25,8 +25,9 @@ public class BinarySearch {
 
     public static void test() {
         int[] arr = {1, 3, 5, 7, 9};
+        int idx;
 
-        int idx = search(arr, 7);
+        idx = search(arr, 7);
         if (-1 == idx) {
             System.out.println("탐색 실패\n");
         } else {
