@@ -2,12 +2,9 @@ package ch04_LinkedList_2.ch04_3;
 
 public class DLinkedListSortTester {
     public static void test() {
-        MyNode<Integer> comparison = null;
-
-
         /*** ArrayList의 생성 및 초기화 ***/
         DLinkedListSort<Integer> dLinkedListSort = new DLinkedListSort<>();
-        Integer data = null;
+        Integer data;
 
         dLinkedListSort.setSort(DLinkedListSortTester::whoIsPrecede);
 
