@@ -7,8 +7,6 @@ public class CircularLinkedListTester {
         Integer data;
         int listSize;
 
-//        int data, i, nodeNum;
-
         // 리스트에 5개의 데이터를 저장 ///////
         list.insert(3);
         list.insert(4);
