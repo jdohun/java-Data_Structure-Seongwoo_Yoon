@@ -1,4 +1,4 @@
-package ch01_Search;
+package ch01_TimeComplexity;
 
 public class BSWorstOperateCount {
     public static int binarySearch(final int[] arr, final int target) {

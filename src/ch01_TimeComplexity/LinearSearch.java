@@ -1,4 +1,4 @@
-package ch01_Search;
+package ch01_TimeComplexity;
 
 public class LinearSearch {
     public static int search(final int[] arr, final int target) {
