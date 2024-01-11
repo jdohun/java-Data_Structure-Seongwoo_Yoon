@@ -17,7 +17,7 @@ public class DLinkedListTester {
         System.out.printf("현재 데이터의 수: %d \n", dLinkedList.size());
 
         data = dLinkedList.first();
-        while (data != null){
+        while (data != null) {
             System.out.println(data);
             data = dLinkedList.next();
         }
@@ -36,7 +36,7 @@ public class DLinkedListTester {
         System.out.printf("현재 데이터의 수: %d \n", dLinkedList.size());
 
         data = dLinkedList.first();
-        while (data != null){
+        while (data != null) {
             System.out.println(data);
             data = dLinkedList.next();
         }

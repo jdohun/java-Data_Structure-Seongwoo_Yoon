@@ -7,8 +7,8 @@ public class NameCard {
     private static final int NAME_LEN = 30;
     private static final int PHONE_LEN = 30;
 
-    private char[] name;
-    private char[] phone;
+    private final char[] name;
+    private final char[] phone;
 
     NameCard(char[] name, char[] phone) {
         this.name = name;

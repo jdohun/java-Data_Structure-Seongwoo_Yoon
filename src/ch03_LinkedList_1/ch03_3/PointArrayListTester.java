@@ -28,7 +28,7 @@ public class PointArrayListTester {
         System.out.println();
 
         /*** xPosition 이 2인 데이터를 탐색하여 모두 삭제 ***/
-        comparisonPosition = new Point(2,0);
+        comparisonPosition = new Point(2, 0);
 
         point = pointArrayList.first();
         while (point != null) {

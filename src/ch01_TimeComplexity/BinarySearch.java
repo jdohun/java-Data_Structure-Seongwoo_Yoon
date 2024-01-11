@@ -3,7 +3,7 @@ package ch01_TimeComplexity;
 public class BinarySearch {
     public static int search(final int[] arr, final int target) {
         int first = 0;
-        int last = arr.length -1;
+        int last = arr.length - 1;
         int mid;
 
         while (first <= last) {

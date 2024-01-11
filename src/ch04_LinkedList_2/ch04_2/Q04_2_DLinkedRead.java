@@ -15,7 +15,7 @@ class Q04_2_DLinkedRead {
 
         /**** 데이터를 입력 받는 과정 ****/
         while (true) {
-            System.out.printf("자연수 입력: ");
+            System.out.print("자연수 입력: ");
             readData = sc.nextInt();
 
             if (readData < 1) {

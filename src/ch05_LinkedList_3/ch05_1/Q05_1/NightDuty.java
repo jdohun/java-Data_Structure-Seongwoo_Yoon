@@ -28,7 +28,7 @@ public class NightDuty {
 
         // Terry 뒤로 3일 뒤 당직자는? ///////
         data = whoIsNightDuty(list, "Terry", 3);
-        if(data != null){
+        if (data != null) {
             data.showEmpInfo();
         } else {
             System.out.println("list 에 등록되지 않은 이름입니다.");
@@ -36,7 +36,7 @@ public class NightDuty {
 
         // Sunny 뒤로 15일 뒤 당직자는? ///////
         data = whoIsNightDuty(list, "Sunny", 15);
-        if(data != null){
+        if (data != null) {
             data.showEmpInfo();
         } else {
             System.out.println("list 에 등록되지 않은 이름입니다.");
@@ -62,7 +62,7 @@ public class NightDuty {
 
         // 그 뒤로 며칠 뒤 ///////
         Employee result = null;
-        for (int i = 0; i < nextDays; i++){
+        for (int i = 0; i < nextDays; i++) {
             result = list.next();
         }
 

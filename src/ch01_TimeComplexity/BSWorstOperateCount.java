@@ -3,7 +3,7 @@ package ch01_TimeComplexity;
 public class BSWorstOperateCount {
     public static int binarySearch(final int[] arr, final int target) {
         int first = 0;
-        int last = arr.length -1;
+        int last = arr.length - 1;
         int mid;
         int opCount = 0; // 비교 연산의 횟수를 기록
 
