@@ -3,10 +3,15 @@ package ch07_Queue.ch07_2;
 import ch07_Queue.ch07_1.QueueADT;
 
 public class ArrayBasedCircularQueue<E> implements QueueADT<E> {
-    private static int QUEUE_LEN = 100;
+    private final int QUEUE_LEN; // = 100;
     int front = 0;
     int rear = 0;
-    Object[] queueArr = new Object[QUEUE_LEN];
+    Object[] queueArr; // = new Object[QUEUE_LEN];
+
+    public ArrayBasedCircularQueue(final int QUEUE_LEN){
+        this.QUEUE_LEN = QUEUE_LEN;
+        this.queueArr = new Object[QUEUE_LEN];
+    }
 
     @Override
     public boolean empty() {
