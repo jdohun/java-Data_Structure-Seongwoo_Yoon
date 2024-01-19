@@ -2,9 +2,9 @@ package ch08_Tree.ch08_2;
 
 public interface BinaryTreeNodeADT<E> {
 
-    void setData(E data);
-
     E getData();
+
+    void setData(E data);
 
     BinaryTree<E> getLeftSubTree();
 

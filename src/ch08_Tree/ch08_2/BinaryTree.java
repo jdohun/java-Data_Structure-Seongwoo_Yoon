@@ -19,13 +19,18 @@ public class BinaryTree<E> implements BinaryTreeNodeADT<E> {
     }
 
     @Override
+    public E getData() {
+        return data;
+    }
+
+    @Override
     public void setData(E data) {
         this.data = data;
     }
 
     @Override
-    public E getData() {
-        return data;
+    public BinaryTree<E> getLeftSubTree() {
+        return leftSubTree;
     }
 
     @Override
@@ -43,8 +48,8 @@ public class BinaryTree<E> implements BinaryTreeNodeADT<E> {
     }
 
     @Override
-    public BinaryTree<E> getLeftSubTree() {
-        return leftSubTree;
+    public BinaryTree<E> getRightSubTree() {
+        return rightSubTree;
     }
 
     @Override
@@ -59,10 +64,5 @@ public class BinaryTree<E> implements BinaryTreeNodeADT<E> {
         */
 
         this.rightSubTree = rightSubTree;
-    }
-
-    @Override
-    public BinaryTree<E> getRightSubTree() {
-        return rightSubTree;
     }
 }
