@@ -9,9 +9,6 @@ public class BinaryTree<E> implements BinaryTreeNodeADT<E> {
     private BinaryTree<E> leftSubTree;
     private BinaryTree<E> rightSubTree;
 
-    public BinaryTree() {
-    }
-
     public BinaryTree(E data) {
         this.data = data;
         this.leftSubTree = null;
