@@ -62,4 +62,20 @@ public class BinaryTree<E> implements BinaryTreeNodeADT<E> {
 
         this.rightSubTree = rightSubTree;
     }
+
+    /**
+     * 문제 08-1 [이진 트리의 소멸]
+     * 자바에서는 의미가 없음
+     */
+    @Override
+    public void deleteTree() {
+        if (this.leftSubTree != null) {
+            this.leftSubTree.deleteTree();
+        }
+        if (this.rightSubTree != null){
+            this.rightSubTree.deleteTree();
+        }
+        System.out.printf("delete tree data: %d\n", this.data);
+        this.data = null;
+    }
 }

@@ -52,7 +52,53 @@ public class ExpressionTreeMaker {
     }
 
     public static void showInfixTypeExpression(BinaryTree<Character> binaryTree) {
-        BinaryTreeTraversal.inorderTraverse(binaryTree, ExpressionTreeMaker::ShowNodeData);
+        // 1 + 2 * 7
+        // BinaryTreeTraversal.inorderTraverse(binaryTree, ExpressionTreeMaker::ShowNodeData);
+        /**
+         * 문제 08-2 답안
+         * ( ( 1 + 2 ) * 7 ) : 연산자의 수 == 소괄호 한 쌍의 수
+         * */
+//        {
+//            if (binaryTree == null) {
+//                return;
+//            }
+//
+//            if (binaryTree.getLeftSubTree() != null && binaryTree.getRightSubTree() != null) {
+//                System.out.print("( ");
+//            }
+//
+//            showInfixTypeExpression(binaryTree.getLeftSubTree());
+//            ShowNodeData(binaryTree);
+//            showInfixTypeExpression(binaryTree.getRightSubTree());
+//
+//            if (binaryTree.getLeftSubTree() != null || binaryTree.getRightSubTree() != null) {
+//                System.out.print(") ");
+//            }
+//        }
+
+        /**
+         * 문제 08-2 답안 변형
+         * ( 1 + 2 ) * 7
+         * */
+        {
+            if (binaryTree == null) {
+                return;
+            }
+
+            final boolean plusOrMinus = isPlusOrMinus(binaryTree);
+
+            if (plusOrMinus) {
+                System.out.print("( ");
+            }
+
+            showInfixTypeExpression(binaryTree.getLeftSubTree());
+            ShowNodeData(binaryTree);
+            showInfixTypeExpression(binaryTree.getRightSubTree());
+
+            if (plusOrMinus) {
+                System.out.print(") ");
+            }
+        }
     }
 
     public static void showPostfixTypeExpression(BinaryTree<Character> binaryTree) {
@@ -66,13 +112,19 @@ public class ExpressionTreeMaker {
             if (0 <= (int) data && (int) data <= 9) {
                 System.out.printf("%d ", data);
             }
-        }
-        if (data instanceof Character) {
+        } else if (data instanceof Character) {
             System.out.printf("%c ", data);
         }
     }
 
-    private static void showIntData(BinaryTreeNodeADT binaryTree) {
-        System.out.printf("%d ", binaryTree.getData());
+    private static boolean isPlusOrMinus(BinaryTreeNodeADT binaryTree) {
+        final Object data = binaryTree.getData();
+
+        if (data instanceof Character) {
+            if ((char) data == '+' || (char) data == '-') {
+                return true;
+            }
+        }
+        return false;
     }
 }
