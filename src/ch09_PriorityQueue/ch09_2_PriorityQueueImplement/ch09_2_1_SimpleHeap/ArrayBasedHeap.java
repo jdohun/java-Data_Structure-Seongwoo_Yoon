@@ -85,12 +85,14 @@ public class ArrayBasedHeap<E> {
 
         // 새 노드가 저장될 위치가 루트 노드의 위치가 아니라면 while 문 반복
         while (idx != 1) {
+            final int parentIndex = getParentIndex(idx);
+
             // 새 노드와 부모 노드의 우선순위 비교
-            if (priority < (heapElements[getParentIndex(idx)].priority)) {
+            if (priority < (heapElements[parentIndex].priority)) {
                 // 부모 노드를 한 레벨 내림, 실제로 내림
-                heapElements[idx] = heapElements[getParentIndex(idx)];
+                heapElements[idx] = heapElements[parentIndex];
                 // 새 노드를 한 레벨 올림, 실제로는 올리지 않고 인덱스 값만 갱신
-                idx = getParentIndex(idx);
+                idx = parentIndex;
             } else  // 새 노드의 우선순위가 높지 않으면
                 break;
         }
