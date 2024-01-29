@@ -11,7 +11,7 @@ public class UsefulArrayBasedHeap<E> {
         this.priorityComparator = comparePriorities;
     }
 
-    boolean empty() {
+    public boolean empty() {
         return size == 0;
     }
 
@@ -62,7 +62,7 @@ public class UsefulArrayBasedHeap<E> {
      *
      * @return 루트 노드의 Data
      */
-    E delete() {
+    public E delete() {
         E deleteData = (E) heapElements[1];    // 반환을 위해 삭제할 데이터 저장
         E lastElement = (E) heapElements[size]; // 마지막 데이터 저장
 
@@ -85,7 +85,7 @@ public class UsefulArrayBasedHeap<E> {
         return deleteData;
     }
 
-    void insert(E insertion) {
+    public void insert(E insertion) {
         int idx = size + 1;
 
         // 새 노드가 저장될 위치가 루트 노드의 위치가 아니라면 while 문 반복
