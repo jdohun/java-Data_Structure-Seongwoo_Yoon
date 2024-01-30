@@ -1,11 +1,10 @@
-package ch10_Sort.ch10_1_SimpleSort;
+package ch10_Sort.ch10_1_SimpleSort.ch10_01_BubbleSort;
 
-public class ch10_01_BubbleSort {
+public class BubbleSort {
     static void bubbleSort(int[] arr) {
-        int maxIndex = arr.length - 1;
         int temp;
-        for (int i = 0; i < maxIndex; i++) {
-            for (int j = 0; j < maxIndex - i; j++) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     temp = arr[j];
                     arr[j] = arr[j + 1];
