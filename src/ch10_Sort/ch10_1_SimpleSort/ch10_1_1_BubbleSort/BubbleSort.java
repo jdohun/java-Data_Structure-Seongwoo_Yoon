@@ -1,4 +1,4 @@
-package ch10_Sort.ch10_1_SimpleSort.ch10_01_BubbleSort;
+package ch10_Sort.ch10_1_SimpleSort.ch10_1_1_BubbleSort;
 
 public class BubbleSort {
     static void bubbleSort(int[] arr) {

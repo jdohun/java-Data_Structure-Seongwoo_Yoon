@@ -1,4 +1,4 @@
-package ch10_Sort.ch10_1_SimpleSort.ch10_02_SelectionSort;
+package ch10_Sort.ch10_1_SimpleSort.ch10_1_2_SelectionSort;
 
 public class SelectionSort {
     static void SelectionSort(int[] arr) {
