@@ -1,28 +1,40 @@
 package ch10_Sort.ch10_2_ComplexEfficientSort.ch10_2_3_QuickSort;
 
-public class QuickSort {
+import static ch10_Sort.ch10_2_ComplexEfficientSort.Q10_1_MedianOfTree_Quick.MedianOfTree.medianOfTree;
+import static utils.Utils.print;
+import static utils.Utils.swap;
 
+public class QuickSort {
     public static void test() {
         int[] arr1 = {3, 2, 4, 1, 7, 6, 5};
         int[] arr2 = {3, 3, 3};
-        testArr(arr1);
-        testArr(arr2);
+        int[] arr3 = {1, 2, 3, 4, 5, 6, 7};
+        testArr(arr1, false);
+        testArr(arr2, false);
+        testArr(arr3, false);
     }
 
-    private static void quickSort(int[] arr, int left, int right) {
+    public static void quickSort(int[] arr, int left, int right, boolean chooseMedian) {
         if (left <= right) {
-            int sortPivotIndex = partition(arr, left, right);
+            int sortPivotIndex = partition(arr, left, right, chooseMedian);
             // 5. 정렬된 pivot 을 기준으로 나뉘어진 두 그룹에 대하여 재귀적 반복
-            quickSort(arr, left, sortPivotIndex - 1);
-            quickSort(arr, sortPivotIndex + 1, right);
+            quickSort(arr, left, sortPivotIndex - 1, chooseMedian);
+            quickSort(arr, sortPivotIndex + 1, right, chooseMedian);
         }
     }
 
-    private static int partition(int[] arr, int left, int right) {
+    private static int partition(int[] arr, int left, int right, boolean chooseMedian) {
         // 1. pivot 설정
         int pivot = arr[left];
         int low = left + 1;
         int high = right;
+
+        if (chooseMedian) {
+            int mid = medianOfTree(arr, left, right);
+            pivot = arr[mid];
+            swap(arr, left, mid); // 피벗을 가장 왼쪽으로 이동, low 와 high 의 교차 이후 다시 제자리로 돌아오게 된다.
+            System.out.println(pivot);
+        }
 
         // 2. pivot 의 위치 찾기
         // 3. pivot 보다 큰 그룹과 작은 그룹으로 나누기
@@ -48,21 +60,8 @@ public class QuickSort {
         return high;    // 옮겨진 피벗의 위치 정보 반환
     }
 
-    private static void swap(int[] arr, int index1, int index2) {
-        int temp = arr[index1];
-        arr[index1] = arr[index2];
-        arr[index2] = temp;
-    }
-
-    private static void testArr(int[] arr) {
-        quickSort(arr, 0, arr.length - 1);
+    private static void testArr(int[] arr, boolean chooseMedian) {
+        quickSort(arr, 0, arr.length - 1, chooseMedian);
         print(arr);
-    }
-
-    private static void print(int[] arr) {
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
     }
 }
