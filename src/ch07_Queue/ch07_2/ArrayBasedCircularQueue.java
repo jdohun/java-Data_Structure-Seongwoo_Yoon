@@ -6,11 +6,11 @@ public class ArrayBasedCircularQueue<E> implements QueueADT<E> {
     private final int QUEUE_LEN; // = 100;
     int front = 0;
     int rear = 0;
-    Object[] queueArr; // = new Object[QUEUE_LEN];
+    E[] queueArr; // E 타입의 배열로 변경
 
-    public ArrayBasedCircularQueue(final int QUEUE_LEN){
+    public ArrayBasedCircularQueue(final int QUEUE_LEN) {
         this.QUEUE_LEN = QUEUE_LEN;
-        this.queueArr = new Object[QUEUE_LEN];
+        this.queueArr = (E[]) new Object[QUEUE_LEN];
     }
 
     @Override
@@ -41,7 +41,7 @@ public class ArrayBasedCircularQueue<E> implements QueueADT<E> {
         front = nextPositionIndex(front);
 
         // 굳이 삭제(초기화)를 하지 않아도 삭제로 간주한다.
-        return (E) queueArr[front];
+        return queueArr[front];
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ArrayBasedCircularQueue<E> implements QueueADT<E> {
             System.out.println("Queue is Empty");
             System.exit(-1);
         }
-        return (E) queueArr[nextPositionIndex(front)];
+        return queueArr[nextPositionIndex(front)];
     }
 
     private int nextPositionIndex(int position) {
