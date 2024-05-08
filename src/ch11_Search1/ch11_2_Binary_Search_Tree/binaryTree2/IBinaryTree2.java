@@ -5,11 +5,11 @@ public interface IBinaryTree2 {
 
     void setData(int data);
 
-    BinaryTree2 getLeftSubTree();
+    IBinaryTree2 getLeftSubTree();
 
-    BinaryTree2 getRightSubTree();
+    IBinaryTree2 getRightSubTree();
 
-    void makeLeftSubTree(BinaryTree2 sub);
+    void makeLeftSubTree(IBinaryTree2 sub);
 
-    void makeRightSubTree(BinaryTree2 sub);
+    void makeRightSubTree(IBinaryTree2 sub);
 }

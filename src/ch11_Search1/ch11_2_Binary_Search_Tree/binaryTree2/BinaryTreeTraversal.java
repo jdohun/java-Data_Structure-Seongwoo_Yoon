@@ -3,7 +3,7 @@ package ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2;
 public class BinaryTreeTraversal implements IBinaryTreeTraversal {
 
     @Override
-    public void preorderTraverse(BinaryTree2 btNode, VisitFuncPointer action) {
+    public void preorderTraverse(IBinaryTree2 btNode, VisitFuncPointer action) {
         if(btNode == null)
             return;
 
@@ -13,7 +13,7 @@ public class BinaryTreeTraversal implements IBinaryTreeTraversal {
     }
 
     @Override
-    public void inorderTraverse(BinaryTree2 btNode, VisitFuncPointer action) {
+    public void inorderTraverse(IBinaryTree2 btNode, VisitFuncPointer action) {
         if(btNode == null)
             return;
 
@@ -23,7 +23,7 @@ public class BinaryTreeTraversal implements IBinaryTreeTraversal {
     }
 
     @Override
-    public void postorderTraverse(BinaryTree2 btNode, VisitFuncPointer action) {
+    public void postorderTraverse(IBinaryTree2 btNode, VisitFuncPointer action) {
         if(btNode == null)
             return;
 

@@ -1,11 +1,12 @@
 package ch11_Search1.ch11_2_Binary_Search_Tree;
 
 import ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2.BinaryTree2;
+import ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2.IBinaryTree2;
 
 public class BinarySearchTreeTester {
     public static void test() {
         BinarySearchTree bstRoot = new BinarySearchTree();
-        BinaryTree2 searchNode;
+        IBinaryTree2 searchNode;
 
         // bstRoot 가 가리키는 이진트리에 데이터를 저장한다.
         bstRoot.insert(9);

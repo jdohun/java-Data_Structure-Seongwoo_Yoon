@@ -1,9 +1,9 @@
 package ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2;
 
 public class BinaryTree2 implements IBinaryTree2 {
-    private int data;
-    private BinaryTree2 left;
-    private BinaryTree2 right;
+    private Integer data;
+    private IBinaryTree2 left;
+    private IBinaryTree2 right;
 
     @Override
     public int getData() {
@@ -16,22 +16,22 @@ public class BinaryTree2 implements IBinaryTree2 {
     }
 
     @Override
-    public BinaryTree2 getLeftSubTree() {
+    public IBinaryTree2 getLeftSubTree() {
         return left;
     }
 
     @Override
-    public BinaryTree2 getRightSubTree() {
+    public IBinaryTree2 getRightSubTree() {
         return right;
     }
 
     @Override
-    public void makeLeftSubTree(BinaryTree2 sub) {
+    public void makeLeftSubTree(IBinaryTree2 sub) {
         this.left = sub;
     }
 
     @Override
-    public void makeRightSubTree(BinaryTree2 sub) {
+    public void makeRightSubTree(IBinaryTree2 sub) {
         this.right = sub;
     }
 }

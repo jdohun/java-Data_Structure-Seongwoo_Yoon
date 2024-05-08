@@ -1,18 +1,19 @@
 package ch11_Search1.ch11_2_Binary_Search_Tree;
 
 import ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2.BinaryTree2;
+import ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2.IBinaryTree2;
 
 public class BinarySearchTree {
-    private BinaryTree2 root;
+    private IBinaryTree2 root;
 
-    public int getNodeData(BinaryTree2 bst) {
+    public int getNodeData(IBinaryTree2 bst) {
         return bst.getData();
     }
 
     public void insert(int data) {
-        BinaryTree2 parentNode = null;
-        BinaryTree2 currentNode = root;
-        BinaryTree2 insertionNode;
+        IBinaryTree2 parentNode = null;
+        IBinaryTree2 currentNode = root;
+        IBinaryTree2 insertionNode;
 
         // 새로운 노드가 추가될 위치를 찾는다.
         while (currentNode != null) {
@@ -43,8 +44,8 @@ public class BinarySearchTree {
         }
     }
 
-    public BinaryTree2 search(int target) {
-        BinaryTree2 currentNode = root;
+    public IBinaryTree2 search(int target) {
+        IBinaryTree2 currentNode = root;
         int currentData;
 
         while (currentNode != null) {
