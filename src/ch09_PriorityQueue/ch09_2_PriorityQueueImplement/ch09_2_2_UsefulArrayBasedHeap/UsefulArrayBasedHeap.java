@@ -47,7 +47,7 @@ public class UsefulArrayBasedHeap<E> {
             rightChildIndex = getRightChildIndex(idx);
 
             // 우선순위는 값이 작을 수록 높은 것으로 설정했다.(프로그래머가 기준을 설정)
-            if (priorityComparator.comparePriorities((E) heapElements[leftChildIndex], (E) heapElements[rightChildIndex]) < 0) {
+            if (priorityComparator.comparePriorities(heapElements[leftChildIndex], heapElements[rightChildIndex]) < 0) {
                 return rightChildIndex;
             } else {
                 return leftChildIndex;
@@ -71,7 +71,7 @@ public class UsefulArrayBasedHeap<E> {
 
         while (childIdx != 0) { // 자식 노드가 없을 때까지
             // 우선순위는 값이 작을 수록 높은 것으로 설정했다.(프로그래머가 기준을 설정)
-            if (priorityComparator.comparePriorities(lastElement, (E) heapElements[childIdx]) >= 0) {
+            if (priorityComparator.comparePriorities(lastElement, heapElements[childIdx]) >= 0) {
                 break;  // 마지막 노드의 우선순위가 높아지면 탈출
             }
 
@@ -93,7 +93,7 @@ public class UsefulArrayBasedHeap<E> {
             final int parentIndex = getParentIndex(idx);
 
             // 새 노드와 부모 노드의 우선순위 비교
-            if (priorityComparator.comparePriorities(insertion, (E) heapElements[parentIndex]) > 0) {
+            if (priorityComparator.comparePriorities(insertion, heapElements[parentIndex]) > 0) {
                 // 부모 노드를 한 레벨 내림, 실제로 내림
                 heapElements[idx] = heapElements[parentIndex];
                 // 새 노드를 한 레벨 올림, 실제로는 올리지 않고 인덱스 값만 갱신

@@ -1,10 +1,12 @@
 package ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2;
 
+import ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree3.IBinaryTree3;
+
 public class BinaryTreeTraversal implements IBinaryTreeTraversal {
 
     @Override
-    public void preorderTraverse(IBinaryTree2 btNode, VisitFuncPointer action) {
-        if(btNode == null)
+    public void preorderTraverse(IBinaryTree3 btNode, VisitFuncPointer action) {
+        if (btNode == null)
             return;
 
         action.visit(btNode.getData());
@@ -13,8 +15,8 @@ public class BinaryTreeTraversal implements IBinaryTreeTraversal {
     }
 
     @Override
-    public void inorderTraverse(IBinaryTree2 btNode, VisitFuncPointer action) {
-        if(btNode == null)
+    public void inorderTraverse(IBinaryTree3 btNode, VisitFuncPointer action) {
+        if (btNode == null)
             return;
 
         inorderTraverse(btNode.getLeftSubTree(), action);
@@ -23,8 +25,8 @@ public class BinaryTreeTraversal implements IBinaryTreeTraversal {
     }
 
     @Override
-    public void postorderTraverse(IBinaryTree2 btNode, VisitFuncPointer action) {
-        if(btNode == null)
+    public void postorderTraverse(IBinaryTree3 btNode, VisitFuncPointer action) {
+        if (btNode == null)
             return;
 
         postorderTraverse(btNode.getLeftSubTree(), action);

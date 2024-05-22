@@ -8,7 +8,7 @@ public class InsertionSort {
             int previousIndex = i - 1;
 
             // 인덱스가 끝날때까지 나보다 작은 값이 없으면
-            while (previousIndex >= 0 && arr[previousIndex] > sortingTarget){
+            while (previousIndex >= 0 && arr[previousIndex] > sortingTarget) {
                 // 이전 값을 뒤로 밀어낸다,
                 arr[previousIndex + 1] = arr[previousIndex];
                 --previousIndex;

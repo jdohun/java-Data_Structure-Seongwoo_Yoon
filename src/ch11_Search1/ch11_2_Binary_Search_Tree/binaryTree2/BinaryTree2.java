@@ -6,12 +6,12 @@ public class BinaryTree2 implements IBinaryTree2 {
     private IBinaryTree2 right;
 
     @Override
-    public int getData() {
+    public Integer getData() {
         return this.data;
     }
 
     @Override
-    public void setData(int data) {
+    public void setData(Integer data) {
         this.data = data;
     }
 

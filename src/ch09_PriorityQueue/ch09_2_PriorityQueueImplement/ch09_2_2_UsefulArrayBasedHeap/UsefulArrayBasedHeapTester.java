@@ -1,6 +1,8 @@
 package ch09_PriorityQueue.ch09_2_PriorityQueueImplement.ch09_2_2_UsefulArrayBasedHeap;
 
 public class UsefulArrayBasedHeapTester {
+    private static final PriorityComparator<Character> priorityComparator = UsefulArrayBasedHeapTester::comparePriorities;
+
     public static void test() {
         UsefulArrayBasedHeap<Character> usefulArrayBasedHeap = new UsefulArrayBasedHeap(priorityComparator);
 
@@ -23,7 +25,6 @@ public class UsefulArrayBasedHeapTester {
         }
     }
 
-    private static PriorityComparator<Character> priorityComparator = UsefulArrayBasedHeapTester::comparePriorities;
     private static int comparePriorities(Character leftData, Character rightData) {
         // 아스키 코드 값이 작은 문자의 우선 순위가 더 높다.
         // 양수 반환

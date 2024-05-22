@@ -49,13 +49,17 @@ BinaryTree2 를 활용하여 구현한다.
 - 삭제할 노드가 단말 노드인 경우!
 - 가장 쉽게 삭제가 가능한 상황이다.
 
-```
-// deleteNode와 parentNode는 각각 삭제할 노드와 이의 부모 노드를 가리키는 포인터 변수
-if (삭제할 노드가 단말노드이다!) {
-    if (parentNode.getLeftSubTree() == deleteNode)
-        parentNode.removeLeftSubTree();
-    else
-        parentNode.removeRightSubTree();
+```java
+class BinarySearchTree {
+    IBinaryTree3 remove(Integer target) {
+        // deleteNode와 parentNode는 각각 삭제할 노드와 이의 부모 노드를 가리키는 포인터 변수
+        if (/** 삭제할 노드가 단말노드이다! */) {
+            if (parentNode.getLeftSubTree() == deleteNode)
+                parentNode.removeLeftSubTree();
+            else
+                parentNode.removeRightSubTree();
+        }
+    }
 }
 ```
 
@@ -65,22 +69,26 @@ removeLeftSubTree, removeRightSubTree 는 IBinaryTree2, BinaryTree2에 추가할
 
 - 삭제할 노드가 하나의 자식 노드를 갖는 경우
 
-```
-// deleteNode와 parentNode는 각각 삭제할 노드와 이의 부모 노드를 가리키는 포인터 변수
-if (삭제할 노드가 하나의 자식 노드를 지닌다.!) {
-    BinaryTree2 deleteChildNode // 삭제 대상의 자식 노드
+```java
+class BinarySearchTree {
+    IBinaryTree3 remove(Integer target) {
+        // deleteNode와 parentNode는 각각 삭제할 노드와 이의 부모 노드를 가리키는 포인터 변수
+        if (/** 삭제할 노드가 하나의 자식 노드를 지닌다! */) {
+            IBinaryTree3 deleteChildNode; // 삭제 대상의 자식 노드
 
-    // 삭제 대상의 자식 노드를 찾는다.
-    if (deleteNode.getLeftSubTree() != null)
-        deleteChildNode = deleteNode.getLeftSubTree();
-    else
-        deleteChildNode = deleteNode.getRightSubTree();
-        
-    // 삭제 대상의 부모 노드와 자식 노드를 연결한다.
-    if (parentNode.getLeftSubTree() == deleteNode)
-        parentNode.changeLeftSubTree(deleteChildNode);
-    else
-        parentNode.changeRightSubTree(deleteChildNode);
+            // 삭제 대상의 자식 노드를 찾는다.
+            if (deleteNode.getLeftSubTree() != null)
+                deleteChildNode = deleteNode.getLeftSubTree();
+            else
+                deleteChildNode = deleteNode.getRightSubTree();
+
+            // 삭제 대상의 부모 노드와 자식 노드를 연결한다.
+            if (parentNode.getLeftSubTree() == deleteNode)
+                parentNode.changeLeftSubTree(deleteChildNode);
+            else
+                parentNode.changeRightSubTree(deleteChildNode);
+        }
+    }
 }
 ```
 
@@ -96,32 +104,36 @@ changeLeftSubTree, changeRightSubTree 는 IBinaryTree2, BinaryTree2에 추가할
 - 단계2. 대체할 노드에 저장된 값을 삭제할 노드에 대입한다.
 - 단계3. 대체할 노드의 부모 노드와 자식 노드를 연결한다.
 
-```
-// deleteNode와 parentNode는 각각 삭제할 노드와 이의 부모 노드를 가리키는 포인터 변수
-if (삭제할 노드가 두 개의 자식 노드를 지닌다.!) {
-    BinaryTree2 mNode = deleteNode.getRightSubTree(); // mNode는 대체 노드
-    BinaryTree2 mParentNode = deleteNode; // mParentNode는 대체 노드의 부모 노드
-
-    ...
-
-    // 단계1. 삭제한 노드를 대체할 노드를 찾는다.
-    while (mNode.getLeftSubTree() != null) {
-        mParentNmNode = mNode;
-        mNode = mNode.getLeftSubTree();
-    }
-
-    // 단계2. 대체할 노드에 저장된 값을 삭제할 노드에 대입한다.
-    deleteNode.setData(mNode.getData());
+```java
+class BinarySearchTree {
+    IBinaryTree3 remove(Integer target) {
+        // deleteNode와 parentNode는 각각 삭제할 노드와 이의 부모 노드를 가리키는 포인터 변수
+        if(true /** 삭제할 노드가 두 개의 자식 노드를 지닌다! */) {
+            IBinaryTree3 mNode = deleteNode.getRightSubTree(); // mNode는 대체 노드
+            IBinaryTree3 mParentNode = deleteNode; // mParentNode는 대체 노드의 부모 노드
     
-    // 단계3. 대체할 노드의 부모 노드와 자식 노드를 연결한다.
-    if (mParentNode.getLeftSubTree() == mNode) {
-      // 대체할 노드의 자식 노드를 부모 노드의 왼쪽에 연결
-      // 자식 노드가 있따면 오른쪽 자식 노드이다.
-      mParentNode.changeLeftSubTree(mNode.getRightSubTree());
-    } else {
-      // 대체할 노드가 오른쪽 자식의 노드라면
-      // 대체할 노드의 자식 노드를 부모 노드의 오른쪽에 연결
-      mParentNode.changeRightSubTree(mNode.getRightSubTree());
+        ...
+
+            // 단계 1. 삭제한 노드를 대체할 노드를 찾는다.
+            while (mNode.getLeftSubTree() != null) {
+                mParentNmNode = mNode;
+                mNode = mNode.getLeftSubTree();
+            }
+
+            // 단계 2. 대체할 노드에 저장된 값을 삭제할 노드에 대입한다.
+            deleteNode.setData(mNode.getData());
+
+            // 단계 3. 대체할 노드의 부모 노드와 자식 노드를 연결한다.
+            if (mParentNode.getLeftSubTree() == mNode) {
+                // 대체할 노드의 자식 노드를 부모 노드의 왼쪽에 연결
+                // 자식 노드가 있따면 오른쪽 자식 노드이다.
+                mParentNode.changeLeftSubTree(mNode.getRightSubTree());
+            } else {
+                // 대체할 노드가 오른쪽 자식의 노드라면
+                // 대체할 노드의 자식 노드를 부모 노드의 오른쪽에 연결
+                mParentNode.changeRightSubTree(mNode.getRightSubTree());
+            }
+        }
     }
 }
 ```

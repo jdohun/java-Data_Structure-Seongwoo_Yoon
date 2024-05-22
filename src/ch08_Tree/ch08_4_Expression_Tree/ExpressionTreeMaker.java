@@ -121,9 +121,7 @@ public class ExpressionTreeMaker {
         final Object data = binaryTree.getData();
 
         if (data instanceof Character) {
-            if ((char) data == '+' || (char) data == '-') {
-                return true;
-            }
+            return (char) data == '+' || (char) data == '-';
         }
         return false;
     }

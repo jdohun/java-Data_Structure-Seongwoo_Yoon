@@ -2,7 +2,7 @@ package ch06_Stack.ch06_3.Q06_1;
 
 class CircularLinkedListBasedStack<E> {
 
-    private CircularLinkedList<E> circularLinkedList = new CircularLinkedList<>();
+    private final CircularLinkedList<E> circularLinkedList = new CircularLinkedList<>();
 
     public boolean empty() {
         return circularLinkedList.size() == 0;

@@ -31,7 +31,7 @@ public class UsingStringBuilderInfixToPostfix {
                             conversionExpression.append(popOperator); // 변환 배열에 저장
                         }
                         break;
-                        // 사칙연산일 때
+                    // 사칙연산일 때
                     case '+':
                     case '-':
                     case '*':
@@ -54,7 +54,14 @@ public class UsingStringBuilderInfixToPostfix {
     }
 
     private static int getOperatorPrecedence(char operator) {
-        switch (operator) {
+        return switch (operator) {
+            case '*','/' -> 5;
+            case '+','-' -> 3;
+            case '(' -> 1;
+            default -> -1;
+        };
+
+        /*switch (operator) {
             case '*':
             case '/':
                 return 5;
@@ -64,18 +71,23 @@ public class UsingStringBuilderInfixToPostfix {
             case '(':
                 return 1;
         }
-        return -1; // 등록되지 않은 연산자
+        return -1; // 등록되지 않은 연산자*/
     }
 
     private static int compareOperatorPrecedence(char stackOperator, char incomingToken) {
         int stackOperatorPrecedence = getOperatorPrecedence(stackOperator);
         int incomingTokenPrecedence = getOperatorPrecedence(incomingToken);
 
-        if (stackOperatorPrecedence > incomingTokenPrecedence) // 스택에는 * or / 가 있고 token 은 + or - 인 경우
-            return 1;
-        else if (stackOperatorPrecedence < incomingTokenPrecedence)    // 같은 수준의 연산자인 경우
-            return -1;
-        else // 스택에는 + or - 가 있고 token 은 * or / 인 경우
-            return 0;
+        // 스택에는 * or / 가 있고 token 은 + or - 인 경우
+        // 같은 수준의 연산자인 경우
+        // 스택에는 + or - 가 있고 token 은 * or / 인 경우
+        return Integer.compare(stackOperatorPrecedence, incomingTokenPrecedence);
+
+        // if (stackOperatorPrecedence > incomingTokenPrecedence) // 스택에는 * or / 가 있고 token 은 + or - 인 경우
+        //     return 1;
+        // else if (stackOperatorPrecedence < incomingTokenPrecedence)    // 같은 수준의 연산자인 경우
+        //     return -1;
+        // else // 스택에는 + or - 가 있고 token 은 * or / 인 경우
+        //     return 0;
     }
 }

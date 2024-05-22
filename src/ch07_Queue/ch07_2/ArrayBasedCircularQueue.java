@@ -8,6 +8,7 @@ public class ArrayBasedCircularQueue<E> implements QueueADT<E> {
     int rear = 0;
     E[] queueArr; // E 타입의 배열로 변경
 
+    @SuppressWarnings("unchecked")
     public ArrayBasedCircularQueue(final int QUEUE_LEN) {
         this.QUEUE_LEN = QUEUE_LEN;
         this.queueArr = (E[]) new Object[QUEUE_LEN];
@@ -15,10 +16,7 @@ public class ArrayBasedCircularQueue<E> implements QueueADT<E> {
 
     @Override
     public boolean empty() {
-        if (front == rear)
-            return true;
-        else
-            return false;
+        return front == rear;
     }
 
     @Override

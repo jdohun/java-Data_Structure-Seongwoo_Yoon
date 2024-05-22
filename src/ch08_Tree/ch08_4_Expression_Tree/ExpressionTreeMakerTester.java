@@ -4,7 +4,7 @@ import ch08_Tree.ch08_2.BinaryTree;
 
 public class ExpressionTreeMakerTester {
     public static void test() {
-        char expression[] = "12+7*".toCharArray();
+        char[] expression = "12+7*".toCharArray();
         final BinaryTree expressionBinaryTree = ExpressionTreeMaker.makeExpressionTree(expression);
 
         System.out.print("전위 표기법의 수식: ");

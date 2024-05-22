@@ -46,8 +46,13 @@ public class MergeSort {
         }
 
         // 병합 결과를 원본 배열에 저장한다.
-        for (int i = left; i <= right; ++i) {
-            arr[i] = sortedArr[i];
+        if (right + 1 - left >= 0) {
+            System.arraycopy(sortedArr, left, arr, left, right + 1 - left);
         }
+
+        // 병합 결과를 원본 배열에 저장한다.
+        // for (int i = left; i <= right; ++i) {
+        //     arr[i] = sortedArr[i];
+        // }
     }
 }

@@ -1,9 +1,9 @@
 package ch11_Search1.ch11_2_Binary_Search_Tree.binaryTree2;
 
 public interface IBinaryTree2 {
-    int getData();
+    Integer getData();
 
-    void setData(int data);
+    void setData(Integer data);
 
     IBinaryTree2 getLeftSubTree();
 
